@@ -27,7 +27,7 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
     let encodedmsg =  encodeURI(`Name:${formDetails.firstName} ${formDetails.lastName}\nEmail:${formDetails.email}\nPhone:${formDetails.phone}\nMessage:${formDetails.message}`);
-    let response = await fetch(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=-${process.env.CHAT_ID}&text=${encodedmsg}`);
+    let response = await fetch(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_TOKEN}/sendMessage?chat_id=-${process.env.REACT_APP_CHAT_ID}&text=${encodedmsg}`);
     setButtonText("Send");
     let result = await response.json();
     console.log(result);
