@@ -30,7 +30,7 @@ export const Contact = () => {
     let response = await fetch(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_TOKEN}/sendMessage?chat_id=-${process.env.REACT_APP_CHAT_ID}&text=${encodedmsg}`);
     setButtonText("Send");
     let result = await response.json();
-    console.log(result);
+    console.log(result,">>>>>>",process.env.REACT_APP_BOT_TOKEN,process.env.REACT_APP_CHAT_ID);
     setFormDetails(formInitialDetails);
     if (result.ok) {
       setStatus({ succes: true, message: 'Message sent successfully'});
